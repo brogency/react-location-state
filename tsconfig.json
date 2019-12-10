@@ -5,7 +5,7 @@
       "dom",
       "es2019"
     ],
-    "module": "esnext",
+    "module": "amd",
     "moduleResolution": "node",
     "removeComments": false,
     "skipLibCheck": true,
@@ -15,7 +15,8 @@
     "declaration": true,
     "esModuleInterop": true,
     "jsx": "preserve",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "outFile": "./dist/index.js"
   },
   "exclude": [
     "node_modules",
