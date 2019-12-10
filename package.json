@@ -1,0 +1,44 @@
+{
+  "name": "react-location-state",
+  "version": "0.0.1",
+  "description": "Control browser location and history state as react state.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brogency/react-location-state.git"
+  },
+  "keywords": [
+    "react",
+    "browser",
+    "location",
+    "history",
+    "state"
+  ],
+  "author": "acrius@mail.ru",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brogency/react-location-state/issues"
+  },
+  "homepage": "https://github.com/brogency/react-location-state#readme",
+  "dependencies": {
+    "history-observer": "^0.0.3",
+    "lodash": "^4.17.15",
+    "querystring": "^0.2.0",
+    "react": "^16.12.0"
+  },
+  "devDependencies": {
+    "@types/history": "^4.7.3",
+    "@types/lodash": "^4.14.149",
+    "@types/node": "^12.12.16",
+    "@types/react": "^16.9.16",
+    "typescript": "^3.7.3"
+  },
+  "files": [
+    "dist/**/*"
+  ]
+}
