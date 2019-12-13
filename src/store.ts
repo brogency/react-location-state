@@ -3,6 +3,7 @@ import { parse, stringify } from 'querystring';
 import get from 'lodash/get';
 import partial from 'lodash/partial';
 import pickBy from 'lodash/pickBy';
+import isEmpty from 'lodash/isEmpty';
 
 import {
   Action,
@@ -172,10 +173,11 @@ class LocationQuerySet<StateType extends State> extends QuerySet<StateType> {
     (convertedState, fieldName): StateType => {
       const originalValue = this.state[fieldName];
       const fieldType = schema[fieldName];
+      const fieldValue = fieldType.parseForStore(originalValue);
 
       return {
         ...convertedState,
-        ...(fieldType ? { [fieldName]: fieldType.parseForStore(originalValue) } : {}),
+        ...(fieldType && (typeof fieldValue === 'object' ? !isEmpty(fieldValue) : !!fieldValue) ? { [fieldName]: fieldValue } : {}),
       };
     },
     // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion
