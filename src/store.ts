@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import { parse, stringify } from 'querystring';
 import get from 'lodash/get';
 import partial from 'lodash/partial';
+import pickBy from 'lodash/pickBy';
 
 import {
   Action,
@@ -137,10 +138,12 @@ class ObjectQuerySet<StateType extends State> extends QuerySet<StateType> {
 
   public convertToString = (schema: Schema, mergedState: LocationState = {}): string => {
     const convertedState = this.convertState(schema);
-    return stringify({
+    const filledState = pickBy({
       ...mergedState,
       ...convertedState,
-    });
+    }, value => !!value);
+
+    return stringify(filledState);
   };
 }
 
